@@ -1,0 +1,29 @@
+/*Index*/
+.card {
+  border-radius: 10px;
+  box-shadow: -2px -2px 18px -4px silver;
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+.orderPreview_image {
+  height: 150px;
+  width: 150px;
+}
+
+.order {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  border: 1px solid black;
+}
+
+#price {
+  border: 1px solid black;
+  width: 200px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
