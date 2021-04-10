@@ -101,7 +101,8 @@ document.addEventListener('DOMContentLoaded', () =>{
                         storage.shift();
                         console.log(storage);
                         localStorage.setItem("panier", (JSON.stringify(storage)));
-                        window.alert("L'objet a été ajouté au panier")
+                        window.alert("L'objet a été ajouté au panier");
+                        window.location.href="index.html";
                     
 
                 } else{
@@ -109,7 +110,8 @@ document.addEventListener('DOMContentLoaded', () =>{
                         storage.push(newObj);
                         console.log(storage)
                         localStorage.setItem("panier", (JSON.stringify(storage)))
-                        window.alert("L'objet a été ajouté au panier")
+                        window.alert("L'objet a été ajouté au panier");
+                        window.location.href="index.html";
                 }
 
             });

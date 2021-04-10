@@ -15,12 +15,13 @@ storage.forEach( function(element, index, array) {
     createOrder(articleJson, index);
 
     totalPrice = totalPrice + articleJson.price;  
+    
 });
 
     // fonction pour le prix total de la commande
     function totalCont(){
         let totalProduct = document.getElementById("price")
-        totalProduct.innerHTML = (totalPrice + " " + "€")
+        totalProduct.innerHTML = (totalPrice/100 + " " + "€")
     }
 
     totalCont();
@@ -78,12 +79,24 @@ storage.forEach( function(element, index, array) {
         pushProduct.id = ("btn_trash")
         order.appendChild(pushProduct);
 
+
+
         var indexTab = index;
         pushProduct.addEventListener("click", function(){
 
             console.log(indexTab);
 
+            //récuperer le local storage
+            let storage = JSON.parse(localStorage.getItem("panier"));
 
+            //enlever l'id selectionné 
+            storage.splice("panier","1");
+            //renvoyer le local storage 
+            localStorage.setItem("panier", (JSON.stringify(storage)));
+
+            window.location.reload();
+
+            console.log(storage);
 
         })
 
@@ -100,16 +113,16 @@ storage.forEach( function(element, index, array) {
     passerCom.addEventListener('click' , function (e)  {
       
         /////////////////////////////////////////
-        console.log(e);
+        
         // envoi du prix total au localStorage
 
 
-        localStorage.setItem('PrixTotalCommande', totalPrice);
+        localStorage.setItem('PrixTotalCommande', totalPrice/100);
 
         const storagePrice = localStorage.getItem('PrixTotalCommande');
 
 
-        console.log(storagePrice);
+        
         /////////////////////////////////////////
 
         
@@ -144,20 +157,61 @@ storage.forEach( function(element, index, array) {
     
             if (result_fn === true && result_ln === true && result_a === true && result_c === true && result_e === true){
                 
-                console.log("ca passe");
-                  // ouverture de la page confirmation de commande 
-                window.open("commande.html");
+                console.log("Tous les champs sont valides")
+            // ouverture de la page confirmation de commande 
+                
+            // envoier l'objet orderInfo a l'API order
 
             } else {
                 
-                console.log("ca passe pas");
+                window.alert("Champs incorrect")
             }
-       
-
-
  /////////////////////////////////////////
 
-        /*Création de l'objet "contact"*/
+        //Création de l'objet orderInfo
+
+            let listeId = [];
+            JSON.parse(localStorage.getItem("panier")).forEach(function(element){
+
+
+                listeId.push(element.id);
+                
+
+
+
+
+
+            });
+
+            const orderInfo = {
+                "contact": {
+                    "firstName": form_fn.value,
+                    "lastName": form_ln.value,
+                    "address": form_a.value,
+                    "city": form_c.value,
+                    "email": form_e.value
+                },
+                    "products": listeId
+            }
+
+            
+        
+            console.log(orderInfo);
+
+            let postReq = new XMLHttpRequest();
+                postReq.open("POST", "http://localhost:3000/api/teddies/order");
+                postReq.setRequestHeader("Content-Type", "application/json");
+
+                postReq.onreadystatechange = function () {
+                    if (postReq.readyState === 4) {
+            
+                       localStorage.setItem("order",this.responseText)
+                       window.open("commande.html");
+                    }
+                }
+                  postReq.send(JSON.stringify(orderInfo)); 
+                   
+           
     });
 
 

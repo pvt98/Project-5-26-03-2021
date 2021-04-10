@@ -14,40 +14,21 @@
     </head>
     
     <body>
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-warning fs-4 text">
-                <div class="container-fluid">
-                  <a class="navbar-brand" href="#">Orinoco</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                      <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="index.html">accueil</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">produit</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="/panier.html">panier</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link active" href="/commande.html">commande</a>
-                      </li>
-                      
-                    </ul>
-                  </div>
-                </div>
-              </nav>
-        </header>
+      <header>
+        <nav class="navbar navbar-light bg-light">
+          <div class="container">
+            <a class="navbar-brand text-primary fs-3 text" href="/index.html">Orinoco</a>
+            <a class="fas fa-shopping-cart fs-3 text" href="/index.html"></a>
+          </div>
+        </nav>
+      </header>
         <main>
             <div class="alert alert-success container mt-5 mb-5 col-6">
 
                 <div class="success_size fas fa-cart-arrow-down fs-1 d-flex justify-content-center mb-3"></div>
                 <div class="d-flex justify-content-center mb-3">Merci pour votre commande !</div>
-                <div class="mb-3">Montant total : 0€</div>
-                <div class="mb-3">Numéro de commande : 08664743</div>
+                <div class="mb-3">Montant total : <span id="totalCommande"></span</div>
+                <div class="mb-3">Numéro de commande : <span id="numberCommande"></span></div>
                 <div class="mb-3">Voici votre numéro de commande.</div>
                 <div class="mb-3">Il vous permettra de suivre la commande pendant la livraison.</div>
                 <div class="d-flex justify-content-center">A bientôt !</div>
@@ -61,7 +42,7 @@
 
         <footer>
 
-            <nav class="list-inline list-inline-expand-lg list-inline-light bg-warning">
+            <nav class="list-inline list-inline-expand-lg list-inline-light bg-light">
                 <div class="container-fluid">
 
                     <ul class="list-inline text-center d-flex justify-content-evenly mb-0">
