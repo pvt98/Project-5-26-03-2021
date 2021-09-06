@@ -7,9 +7,12 @@
   cursor: pointer;
 }
 
+
+
 .orderPreview_image {
   height: 150px;
   width: 150px;
+  object-fit: cover;
 }
 
 .order {
@@ -45,6 +48,3 @@
     
     margin-left: 150px;
   }
-
-
-

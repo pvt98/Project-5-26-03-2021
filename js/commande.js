@@ -8,15 +8,14 @@ let storagePrix = JSON.parse(localStorage.getItem("PrixTotalCommande"));
 
 let totalList = document.getElementById('numberCommande');
 let storageList = JSON.parse(localStorage.getItem("order"));
-    totalList.innerHTML = (storageList)
+totalList.innerHTML = storageList.orderId
+
+localStorage.clear();
+
+   
+ 
+
+//console.log(storageId);
 
 
-    
-
-
-
-
-    
-
-console.log(storageId);
-    
+////panier.clear

@@ -45,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () =>{
             let color = document.createElement('div');
             let labelColor = document.createElement('label');
             labelColor.setAttribute('for', 'colors');
-            
             labelColor.textContent = "couleur :   ";
 
             // ajout du selecteur option pour les couleurs 
@@ -83,16 +82,8 @@ document.addEventListener('DOMContentLoaded', () =>{
             card.appendChild(button);
 
             button.addEventListener("click", function(){ // au clic
-
-                
-                let productPrice = document.getElementById("teddyPrice");
-                let productImage = document.getElementById("productImage")
-                let productName = document.getElementById("productName");
+           
                 let storage = JSON.parse(localStorage.getItem("panier"));
-
-
-              
-
 
                     if (storage == null){
                         let storage = ["string"];
@@ -105,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () =>{
                         window.location.href="index.html";
                     
 
-                } else{
+                }  else {
                     let newObj = {id:id}
                         storage.push(newObj);
                         console.log(storage)
@@ -115,18 +106,12 @@ document.addEventListener('DOMContentLoaded', () =>{
                 }
 
             });
-
-
-            
+     
         }
     
     }
     // récuperation du produit 
     getProduct();
-
-
-
-
 
 });
 
